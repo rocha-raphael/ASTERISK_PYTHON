@@ -7,6 +7,7 @@ date=os.popen('date \'+%Y-%m-%d %H:%M\'').read().strip()
 #Procura o externip configurado no sip.conf
 ip_sip_antigo = os.popen('cat /etc/asterisk/sip.conf | grep externip').read().strip().split('\n')
 for i in ip_sip_antigo:
+#Aqui ele busca a linha do externip se ela não estiver comentada.
     if ';' not in i:
         ip_sip_antigo=i
         ip_sip=i.split('=')
